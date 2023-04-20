@@ -65,7 +65,6 @@ conference.join();
 
 
 const express = require('express');
-const mongoose = require('mongoose');
 const cors = require('cors');
 const { createConference, getConference } = require('./api/conference');
 
