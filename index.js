@@ -32,8 +32,6 @@ const options = {
 
 const api = new JitsiMeetJS.JitsiMeetExternalAPI('meet.jit.si', options);
 
-
-
 // Set up MongoDB connection
 const { MongoClient } = require('mongodb');
 
