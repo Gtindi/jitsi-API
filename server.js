@@ -9,6 +9,12 @@ const cors = require('cors');
 const { JitsiMeetJS } = require('lib-jitsi-meet');
 const { createConference, getConference } = require('./api/conference');
 
+
+app.use(express.json());
+app.use(cors());
+
+
+
 // Initializing the JitsiMeetJS library
 const initOptions = {
   disableAudioLevels: true,
