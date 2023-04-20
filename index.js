@@ -40,4 +40,4 @@ const jitsiOptions = {
 
 JitsiMeetJS.init(initOptions);
 
-
+// Connect to the Jitsi server
