@@ -40,4 +40,10 @@ const jitsiOptions = {
 
 JitsiMeetJS.init(initOptions);
 
-// Connect to the Jitsi server
+// Connect to the Jitsi server:
+const connection = new JitsiMeetJS.JitsiConnection(null, null, jitsiOptions);
+connection.addEventListener(JitsiMeetJS.events.connection.CONNECTION_ESTABLISHED, () => {
+  console.log('Jitsi connection established!');
+});
+connection.connect();
+
