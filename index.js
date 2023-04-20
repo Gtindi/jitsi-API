@@ -54,3 +54,4 @@ const conferenceOptions = {
 
 const conference = connection.initJitsiConference('myroom', conferenceOptions);
 
+// Join the conference
