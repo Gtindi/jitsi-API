@@ -7,6 +7,7 @@ const io = require('socket.io')(server);
 const mongoose = require('mongoose');
 const cors = require('cors');
 const { JitsiMeetJS } = require('lib-jitsi-meet');
+const { createConference, getConference } = require('./api/conference');
 
 // Initializing the JitsiMeetJS library
 const initOptions = {
@@ -64,8 +65,6 @@ conference.on(JitsiMeetJS.events.conference.CONFERENCE_JOINED, () => {
 });
 conference.join();
 
-
-const { createConference, getConference } = require('./api/conference');
 
 const app = express();
 app.use(express.json());
