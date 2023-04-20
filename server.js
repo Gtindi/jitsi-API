@@ -62,3 +62,25 @@ conference.on(JitsiMeetJS.events.conference.CONFERENCE_JOINED, () => {
 });
 conference.join();
 
+
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const { createConference, getConference } = require('./api/conference');
+
+const app = express();
+app.use(express.json());
+app.use(cors());
+
+const mongoURI = 'mongodb://localhost:27017/mydatabase';
+mongoose
+  .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('MongoDB connected...'))
+  .catch((err) => console.log(err));
+
+app.post('/api/conference/start', createConference);
+app.get('/api/conference/:id', getConference);
+
+const port = process.env.PORT || 5000;
+app.listen(port, () => console.log(`Server started on port ${port}`));
+
