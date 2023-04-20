@@ -4,6 +4,7 @@ const app = express();
 const http = require('http');
 const server = http.createServer(app);
 const io = require('socket.io')(server);
+const mongoose = require('mongoose');
 const { JitsiMeetJS } = require('lib-jitsi-meet');
 
 // Initializing the JitsiMeetJS library
