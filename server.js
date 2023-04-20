@@ -65,7 +65,6 @@ conference.on(JitsiMeetJS.events.conference.CONFERENCE_JOINED, () => {
 conference.join();
 
 
-const express = require('express');
 const { createConference, getConference } = require('./api/conference');
 
 const app = express();
