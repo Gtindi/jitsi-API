@@ -21,6 +21,18 @@ io.on('connection', (socket) => {
 });
 
 
+// Set up Jitsi Meet API
+const options = {
+  hosts: {
+    domain: 'meet.jit.si',
+    muc: 'conference.meet.jit.si',
+  },
+  bosh: 'https://meet.jit.si/http-bind',
+};
+
+const api = new JitsiMeetJS.JitsiMeetExternalAPI('meet.jit.si', options);
+
+
 
 // Set up MongoDB connection
 const { MongoClient } = require('mongodb');
@@ -39,16 +51,51 @@ async function run() {
 
 run();
 
-// Set up Jitsi Meet API
-const options = {
-  hosts: {
-    domain: 'meet.jit.si',
-    muc: 'conference.meet.jit.si',
-  },
-  bosh: 'https://meet.jit.si/http-bind',
-};
+const JitsiMeetJS = require('jitsi-meet');
 
-const api = new JitsiMeetJS.JitsiMeetExternalAPI('meet.jit.si', options);
+// Function to start the video conference
+function startVideoConference(roomName) {
+  api.executeCommand('displayName', 'John Doe');
+  api.executeCommand('subject', 'Jitsi Meeting');
+  api.executeCommand('password', 'myPassword');
+  api.executeCommand('email', 'john@example.com');
+  api.executeCommand('avatarUrl', 'https://example.com/avatar.jpg');
+  api.executeCommand('invite', ['user1@example.com', 'user2@example.com']);
+  api.executeCommand('startRecording');
+  api.executeCommand('toggleLobby', true);
+  api.executeCommand('toggleTileView');
+  api.executeCommand('toggleChat');
+  api.executeCommand('toggleFilmStrip');
+  api.executeCommand('toggleAudio');
+  api.executeCommand('toggleVideo');
+  api.executeCommand('toggleShareScreen');
+  api.executeCommand('toggleVirtualBackground');
+  api.executeCommand('toggleFullScreen');
+  api.executeCommand('toggleToolbox');
+  api.executeCommand('toggleCaption');
+  api.executeCommand('toggleEtherpad');
+  api.executeCommand('toggleNotifications');
+  api.executeCommand('toggleParticipantsList');
+  api.executeCommand('toggleSettings');
+  api.executeCommand('toggleAudioOnly');
+  api.executeCommand('toggleVideoQuality');
+  api.executeCommand('toggleTileView');
+  api.executeCommand('toggleVideoBackground');
+  api.executeCommand('toggleVideoBlur');
+  api.executeCommand('toggleVideoBackgroundEffect');
+  api.executeCommand('toggleVideoTileMuted');
+  api.executeCommand('toggleTileView');
+  api.executeCommand('toggleShareAudio');
+  api.executeCommand('toggleTileView');
+  api.executeCommand('toggleScreenSharing');
+  api.executeCommand('toggleTileView');
+  api.join(roomName);
+}
+
+// Function to end the video conference
+function endVideoConference() {
+  api.dispose();
+}
 
 // API function to capture a large video screenshot
 app.get('/api/captureLargeVideoScreenshot', (req, res) => {
@@ -112,13 +159,6 @@ app.get('/api/getVideoQuality', (req, res) => {
     res.send(videoQuality);
   });
 });
-
-
-
-
-
-
-
 
 server.listen(4000, () => {
   console.log('Server running on port 4000');
