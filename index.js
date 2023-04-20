@@ -47,3 +47,5 @@ connection.addEventListener(JitsiMeetJS.events.connection.CONNECTION_ESTABLISHED
 });
 connection.connect();
 
+// Create a new Jitsi conference:
+
