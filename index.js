@@ -48,4 +48,9 @@ connection.addEventListener(JitsiMeetJS.events.connection.CONNECTION_ESTABLISHED
 connection.connect();
 
 // Create a new Jitsi conference:
+const conferenceOptions = {
+  openBridgeChannel: true,
+};
+
+const conference = connection.initJitsiConference('myroom', conferenceOptions);
 
