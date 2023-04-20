@@ -66,7 +66,6 @@ conference.on(JitsiMeetJS.events.conference.CONFERENCE_JOINED, () => {
 conference.join();
 
 
-const app = express();
 app.use(express.json());
 app.use(cors());
 
