@@ -69,8 +69,6 @@ conference.on(JitsiMeetJS.events.conference.CONFERENCE_JOINED, () => {
 conference.join();
 
 
-app.use(express.json());
-app.use(cors());
 
 const mongoURI = 'mongodb://localhost:27017/mydatabase';
 mongoose
