@@ -1,0 +1,23 @@
+{
+  "name": "jitsi-api",
+  "version": "1.0.0",
+  "description": "Jistsi Video conferencing API for a Mobile App",
+  "main": "index.js",
+  "scripts": {
+    "test": "test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gtindi/jitsi-API.git"
+  },
+  "author": "Gabriel Tindi",
+  "license": "ISC",
+  "lib-jitsi-meet": "file:///home/tindi/Github/lib-jitsi-meet",
+  "bugs": {
+    "url": "https://github.com/Gtindi/jitsi-API/issues"
+  },
+  "homepage": "https://github.com/Gtindi/jitsi-API#readme",
+  "dependencies": {
+    "lib-jitsi-meet": "^1.0.6"
+  }
+}
