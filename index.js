@@ -55,3 +55,10 @@ const conferenceOptions = {
 const conference = connection.initJitsiConference('myroom', conferenceOptions);
 
 // Join the conference
+conference.on(JitsiMeetJS.events.conference.CONFERENCE_JOINED, () => {
+  console.log('Jitsi conference joined!');
+  const localTracks = JitsiMeetJS.createLocalTracks({ devices: ['audio', 'video'] });
+  conference.addTrack(localTracks[0]);
+});
+conference.join();
+
