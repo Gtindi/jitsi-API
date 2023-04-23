@@ -1,6 +1,6 @@
 <h1>Jitsi API</h1>
 <ul>
-<li> `GET /api/captureLargeVideoScreenshot` : This endpoint will capture a large video screenshot. </li>
+<li> `GET` `/api/captureLargeVideoScreenshot` : This endpoint will capture a large video screenshot. </li>
 <li> `GET /api/getAvailableDevices`: This endpoint will retrieve a list of available devices. </li>
 <li> `GET /api/getContentSharingParticipants`: This endpoint will retrieve an array of currently sharing participants ID's. </li>
 <li> `GET /api/getCurrentDevices`: This endpoint will retrieve a list of currently selected devices. </li>
